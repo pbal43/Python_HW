@@ -17,10 +17,10 @@ h=frozenset('hello')
 #Создать переменную типа Dict. Примечания: Ключ-значение
 i=dict({'j': 1000, 10: 10})
 #Вывести в консоль все выше перечисленные переменные с добавлением типа данных.
-p=list([a, b, c, d, e, f, g, h, i])
+p=[a, b, c, d, e, f, g, h, i]
 import string
 j=str(string.ascii_letters)
-for q in range (9):
+for q in range (len(p)):
     print(j[q], 'have type:', type(p[q]))
 #Создать 2 переменные String, создать переменную в которой суммируете эти переменные. Вывести в консоль.
 a1=str('Your')

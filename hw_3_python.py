@@ -115,7 +115,7 @@ else:
 #                     31.6 Сделать elif с остальными валютами
 #                     31.7 Последним оставить else, при выполнений которого в консоль выведется (“Unknow currency”)
 
-# 32. Дополнительно: добавил ввозможность ввода кода валюты пользователем
+# 32. Дополнительно: добавил возможность ввода кода валюты пользователем
 if currency_convertor:
     currency_usd = usd_item
     print('Введите трехбуквенный код выбранной валюты согласно ISO 4217 для просмотра ее стоимости в долл. США')
@@ -141,6 +141,6 @@ if currency_convertor:
         currency_result = target_currency_amount / usd_usd_rate
         print(target_currency_amount, usd_item, '=', currency_result, usd_item)
     else:
-        print('Unknow currency')
+        print('Unknown currency')
 else:
     print('Переменная currency_convertor = ', item_3)

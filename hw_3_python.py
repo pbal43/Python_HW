@@ -119,7 +119,7 @@ else:
 if currency_convertor:
     currency_usd = usd_item
     print('Введите трехбуквенный код выбранной валюты согласно ISO 4217 для просмотра ее стоимости в долл. США')
-    target_currency = str.lower(input())
+    target_currency = str.strip(str.lower(input()))
     target_currency_amount = 50
     currency_result = 0
     if target_currency == 'eur':

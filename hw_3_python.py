@@ -112,3 +112,33 @@ else:
 #                     31.5 Сделать elif в котором будет условие: если target_currency равен ‘uah’, то в теле этого if в значении переменной currency_result высчитать сколько долларов получится при target_currency_amount и usd_uah_rate. Результат вывести в консоль (target_currency_amount, uah_item, “=”, currency_result, usd_item)
 #                     31.6 Сделать elif с остальными валютами
 #                     31.7 Последним оставить else, при выполнений которого в консоль выведется (“Unknow currency”)
+
+# 32. Дополнительно: добавил ввозможность ввода кода валюты пользователем
+if currency_convertor:
+    currency_usd = usd_item
+    print('Для просмотра суммы после обмена выбранной на доллар США, введите трехбуквенный код выбранной валюты согласно ISO 4217')
+    target_currency = str.lower(input())
+    target_currency_amount = 50
+    currency_result = 0
+    if target_currency == 'eur':
+        currency_result = target_currency_amount / usd_eur_rate
+        print(target_currency_amount, eur_item, '=', currency_result, usd_item)
+    elif target_currency == 'uah':
+        currency_result = target_currency_amount / usd_uah_rate
+        print(target_currency_amount, uah_item, '=', currency_result, usd_item)
+    elif target_currency == 'chf':
+        currency_result = target_currency_amount / usd_chf_rate
+        print(target_currency_amount, chf_item, '=', currency_result, usd_item)
+    elif target_currency == 'rub':
+        currency_result = target_currency_amount / usd_rub_rate
+        print(target_currency_amount, rub_item, '=', currency_result, usd_item)
+    elif target_currency == 'byn':
+        currency_result = target_currency_amount / usd_byn_rate
+        print(target_currency_amount, byn_item, '=', currency_result, usd_item)
+    elif target_currency == 'usd':
+        currency_result = target_currency_amount / usd_usd_rate
+        print(target_currency_amount, usd_item, '=', currency_result, usd_item)
+    else:
+        print('Unknow currency')
+else:
+    print('Переменная currency_convertor = ', item_3)

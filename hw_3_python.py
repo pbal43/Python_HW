@@ -76,6 +76,7 @@ else:
 #  29. Создать переменную currency_convertor со значением item_2
 currency_convertor = item_2
 #  30. Сделать if в котором будет условие: если currency_convertor, то выполнять следующие шаги задания, иначе, вывести в консоль (“Переменная currency_convertor = ”, item_3)
+
 if currency_convertor:
     currency_usd = usd_item
     target_currency = eur_item
@@ -103,6 +104,7 @@ if currency_convertor:
         print('Unknow currency')
 else:
     print('Переменная currency_convertor = ', item_3)
+
 #  31. Внутри if currency_convertor сделать следующие If условия :
 #                     31.1 Создать переменную currency_usd со значением usd_item
 #                     31.2 Создать переменную target_currency со значением eur_item
@@ -116,7 +118,7 @@ else:
 # 32. Дополнительно: добавил ввозможность ввода кода валюты пользователем
 if currency_convertor:
     currency_usd = usd_item
-    print('Для просмотра суммы после обмена выбранной на доллар США, введите трехбуквенный код выбранной валюты согласно ISO 4217')
+    print('Введите трехбуквенный код выбранной валюты согласно ISO 4217 для просмотра ее стоимости в долл. США')
     target_currency = str.lower(input())
     target_currency_amount = 50
     currency_result = 0

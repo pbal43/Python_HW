@@ -61,7 +61,7 @@ for i in range(len(curr_values)):
 # a
 print('Введите сумму в рублях.')
 x = str.strip(input())
-if x != '':
+if x:
     try:
         a = float(x)
         usd_rub = 77.59
@@ -72,8 +72,11 @@ if x != '':
         print('Ты ввёл', a, 'руб.')
         curr_course = [usd_rub, eur_rub, chf_rub, gbp_rub, cny_rub]
         curr_values = ['USD', 'EUR', 'CHF', 'GBP', 'CNY']
-        for i in range(len(curr_values)):
-            print('Конвертированная сумма в', curr_values[i],' = ', round((a / curr_course[i]), 2))
+        if a >= 0:
+            for i in range(len(curr_values)):
+                print('Конвертированная сумма в', curr_values[i],' = ', round((a / curr_course[i]), 2))
+        else:
+            print('Введите положительное число.')
     except ValueError:
         print('Вы ввели не число. Введите число.')
 else:

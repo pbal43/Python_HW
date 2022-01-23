@@ -83,6 +83,10 @@ else:
     print('Вы ввели пустое поле. Введите число.')
 
 # b)
+from func_conv import conv_in_curr
+print('Введите сумму в рублях.')
+x = str.strip(input())
+conv_in_curr(x)
 
 # Задача №4
 # Обменник. Скрипт запускается в консоли и работает постоянно. Остановится нажатием ctrl+c.
@@ -155,5 +159,12 @@ while True:
                 break
     else:
         print('Вы ввели пустое поле или пробел. Введите название валюты.')
+
+# b)
+while True:
+    print("Выберите валюту из ['USD' , 'EUR' , 'CHF' , 'GBP', 'CNY']")
+    x = str.upper(str.strip(input()))
+    from func_conv import conv_manual_curr
+    conv_manual_curr(x)
 
 # через вложенный While можно настроить круговорот введения суммы по аналогии с валютой

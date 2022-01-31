@@ -3,7 +3,7 @@ def update_func(user_em, user_emails, users_storage):
         while True:
             new_data = input('Что вы желаете заменить? (Введите: "email", "name", "password", "phone")\nДля выхода введите "S"')
             if new_data == 'email':
-                user_em_new = input('Введите новое значение Email (для сохранения старого - введите старое)\nпосле смены email для изменения других данных необходимо вызвать функцию заново')
+                user_em_new = str.lower(str.strip(input('Введите новое значение Email (для сохранения старого - введите старое)\nпосле смены email для изменения других данных необходимо вызвать функцию заново')))
                 a = user_emails.index(user_em)
                 user_emails[a] = user_em_new
                 users_storage[user_em_new] =  users_storage.pop(user_em)

@@ -14,6 +14,7 @@ from read import user_info, all_users_info
 from update import update_func
 from delete import del_func
 from help import help_func
+import re
 user_emails=[]
 users_storage = {}
 
@@ -22,10 +23,22 @@ while True:
     if action == 'create':
         print('action = ', action)
         email = str.lower(str.strip(input('Email: ')))
-        if email not in user_emails:
+        if email not in user_emails and email != "":
             name = input('Name: ')
-            password = input('Password: ')
+            if name == "":
+                print('Пустое поле, введите имя')
+                continue
+            password = input('Введите Password (более 4 символов, обязательны цифры и латинница верхним регистром): ')
+            if password == "":
+                print('Пустое поле, введите password')
+                continue
+            if len(password) <= 4 or  (re.search('[0-9]',password) is None) or (re.search('[A-Z]',password) is None):
+                print('Password не соответствует требованиям')
+                continue
             phone = input('Phone: ')
+            if phone == "":
+                print('Пустое поле, введите phone')
+                continue
             create_user(email,
                         name,
                         password,
@@ -35,7 +48,7 @@ while True:
             print('user_emails', user_emails)
             print('users_storage', users_storage)
         else:
-            print('this user already exist')
+            print('this user already exist or empty input')
     elif action == 'read_all':
         print('action = ', action)
         all_users_info(users_storage)

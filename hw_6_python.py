@@ -42,12 +42,37 @@ with open (csv_emails, 'w', newline="") as emails_writer:
         writer_emails.writerow([z])
 
 # Вариант 1. Создать nne.csv файл с 3-мя полями(Number, Name, Email ), в котором будут 100 строк. Имя и часть email до @ должны совпадать.
+import names
+nne_title = 'nne.csv'
+csv_nne = filepath + nne_title
+mails = ['@gmail.com', '@mail.ru', '@ya.ru']
 
-
+with open(csv_nne, 'w', newline='') as nne_f:
+    columns = ['Number', 'Name', 'Email']
+    writer = csv.DictWriter(nne_f, fieldnames = columns)
+    writer.writeheader()
+    new_writer = csv.writer(nne_f)
+    for i in range(1, 101):
+        xxx = names.get_first_name()
+        rand_email = xxx+(random.choice(mails))
+        new_writer = csv.writer(nne_f)
+        chechich = str(i)
+        birukach = [chechich] + [xxx] + [rand_email]
+        new_writer.writerow(birukach)
 
 # Вариант 2. Создать digits_2.csv файл с 1-м полем которое называется number, в котором будут 300 строк с числами от 10 до 310
-#
-#
+dig2_title = 'digits_2.csv'
+csv_dig2 = filepath + dig2_title
+i_list = []
+for i in range(10,311):
+    i_list.append(i)
+with open(csv_dig2, 'w', newline='') as digger2_f:
+    columns = ['number']
+    writer = csv.DictWriter(digger2_f, fieldnames = columns)
+    writer.writeheader()
+    dig2_writer = csv.writer(digger2_f)
+    for i in i_list:
+        dig2_writer.writerow([i])
 # Вариант 2. Создать names_2.csv файл с 1-м полем которое называется name, в котором будут 400 строк с разными именами
 #
 #

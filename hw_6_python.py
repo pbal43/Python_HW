@@ -74,14 +74,65 @@ with open(csv_dig2, 'w', newline='') as digger2_f:
     for i in i_list:
         dig2_writer.writerow([i])
 # Вариант 2. Создать names_2.csv файл с 1-м полем которое называется name, в котором будут 400 строк с разными именами
-#
-#
-# Вариант 2. Создать emals_2.csv файл с 1-м полем которое называется email, в котором будут 400 строк с разными имейлами что-то@gmail.com
-#
-#
+names2_title = 'names_2.csv'
+csv_names2 = filepath + names2_title
+import names
+names_listik = []
+for i in range(400):
+    imechko = names.get_full_name()
+    names_listik.append(imechko)
+with open(csv_names2, 'w', newline='') as names2_f:
+    columns = ['name']
+    writer = csv.DictWriter(names2_f, fieldnames = columns)
+    writer.writeheader()
+    names2_writer = csv.writer(names2_f)
+    for i in names_listik:
+        names2_writer.writerow([i])
+
+# Вариант 2. Создать emails_2.csv файл с 1-м полем которое называется email, в котором будут 400 строк с разными имейлами что-то@gmail.com
+emails2_title = 'emails_2.csv'
+csv_emails_2 = filepath + emails2_title
+import random
+import string
+def random_char_2(char_num):
+       return ''.join(random.choice(string.ascii_letters.lower()) for _ in range(char_num))
+import names
+emails2_listik = []
+for i in range(400):
+    rand_mail = random_char(7)+"@gmail.com"
+    emails2_listik.append(rand_mail)
+with open (csv_emails_2, 'w', newline='') as emails2_f:
+    columns = ['email']
+    writer = csv.DictWriter(emails2_f, fieldnames = columns)
+    writer.writeheader()
+    emails2_writer = csv.writer(emails2_f)
+    for i in emails2_listik:
+        emails2_writer.writerow([i])
+
 # Вариант 2. Создать nne_2.csv файл с 3-мя полями(Number, Name, Email ), в котором будут 450 строк. Имя и часть email до @ должны совпадать.
-#
-#
+import names
+nne2_title = 'nne_2.csv.csv'
+csv_nne2 = filepath + nne2_title
+mails = ['@gmail.com', '@mail.ru', '@ya.ru']
+num_listik = []
+name_listik = []
+mails_full = []
+
+with open(csv_nne2, 'w', newline='') as nne2_f:
+    columns = ['Number', 'Name', 'Email']
+    writer = csv.DictWriter(nne2_f, fieldnames = columns)
+    writer.writeheader()
+    new_writer = csv.writer(nne2_f)
+    for i in range(1, 451):
+        namerandomo = names.get_full_name()
+        rand_email2 = namerandomo + (random.choice(mails))
+        num_listik.append(i)
+        name_listik.append(namerandomo)
+        mails_full.append(rand_email2)
+    for k in range(len(num_listik)):
+        birukachoik = [num_listik[k]] + [name_listik[k]] + [mails_full[k]]
+        new_writer.writerow(birukachoik)
+
 # Добавить в файл nne_2.csv столбец Date и заполнить каждую строку текущей датой и временем. Поле даты заполнить следующим образом:
 # a) Первые 50 строк даты по годам от 1980 - 1990 (паспределие рандомно)
 # b) Следующие 100 строк даты по годам от 1991 - 2000 (паспределие рандомно)

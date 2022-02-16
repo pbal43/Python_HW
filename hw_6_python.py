@@ -134,26 +134,67 @@ with open(csv_nne2, 'w', newline='') as nne2_f:
         new_writer.writerow(birukachoik)
 
 # Добавить в файл nne_2.csv столбец Date и заполнить каждую строку текущей датой и временем. Поле даты заполнить следующим образом:
-# a) Первые 50 строк даты по годам от 1980 - 1990 (паспределие рандомно)
-# b) Следующие 100 строк даты по годам от 1991 - 2000 (паспределие рандомно)
-# с) Следующие 150 строк даты по годам от 2001 - 2010 (паспределие рандомно)
-# в) Следующие 150 строк даты по годам от 2011 - 2021 (паспределие рандомно)
-
-
-
-
-
-# Создать файл combo.csv с полями Name, Emaill, Date. 1000 строк.
+# a) Первые 50 строк даты по годам от 1980 - 1990 (распределение рандомно)
+# b) Следующие 100 строк даты по годам от 1991 - 2000 (распределение рандомно)
+# с) Следующие 150 строк даты по годам от 2001 - 2010 (распределение рандомно)
+# d) Следующие 150 строк даты по годам от 2011 - 2021 (распределение рандомно)
+from datetime import date
+from random_date_hw6 import random_date
+from random import randrange
+from datetime import timedelta
+from datetime import datetime
+current_date = str(date.today())
+date_a = []
+date_b = []
+date_c = []
+date_d = []
+for i in range(301):  # можно все запараллелить
+    if i <= 50:
+        aa = random_date((datetime.strptime('1/1/1980', '%m/%d/%Y')), (datetime.strptime('1/1/1990', '%m/%d/%Y')))
+        zz = str(aa)
+        randik_a = (zz[0:10])
+        date_a.append(randik_a)
+    if i > 50 and i <= 150:
+        bb = random_date((datetime.strptime('1/1/1991', '%m/%d/%Y')), (datetime.strptime('1/1/2000', '%m/%d/%Y')))
+        oo = str(bb)
+        randik_b = (oo[0:10])
+        date_b.append(randik_b)
+    if i > 150 and i <= 300:
+        cc = random_date((datetime.strptime('1/1/2001', '%m/%d/%Y')), (datetime.strptime('1/1/2010', '%m/%d/%Y')))
+        jj = str(cc)
+        randik_c = (jj[0:10])
+        date_c.append(randik_c)
+        dd = random_date((datetime.strptime('1/1/2011', '%m/%d/%Y')), (datetime.strptime('1/1/2021', '%m/%d/%Y')))
+        nn = str(dd)
+        randik_d = (nn[0:10])
+        date_d.append(randik_d)
+with open(csv_nne2, 'a', newline='') as nne2upd_f:
+    columns = ['Date']
+    writer = csv.DictWriter(nne2upd_f, fieldnames=columns)
+    writer.writeheader()
+    new_writer = csv.writer(nne2upd_f)
+    new_writer.writerow([current_date])
+    for r in range(0,51):
+        new_writer.writerow([date_a[r]])
+    for k in range(0,100):
+        new_writer.writerow([date_b[k]])
+    for q in range(0,100):
+        new_writer.writerow([date_c[q]])
+    for v in range(0,100):
+        new_writer.writerow([date_d[v]])
+# Создать файл combo.csv с полями Name, Email, Date. 1000 строк.
 # a) Соберите имена из файла nne_2.csv.
 # b) недостающие 550 строк имён сгенерируйте.
 # с) Имена расположите в алфавитном порядке.
 # d) Для имён из файла nne_2.csv забрать даты из nne_2.csv которые были с этими именами в nne_2.csv.
 # e) Остальные даты генерировать рандомно.
 # f) Добавить и заполнить (можно рандомно) столбы Email, Phone, Gender, Salary.
-#
-#
-#
-#
+
+
+
+
+
+
 # P.S.
 # Задания специально написаны немного запутанно)) Привыкайте.
 # Реализация и порядок выполнения каждого задания и внутренних подпунктов заданий любая, особенно в 10 и 11 задании. )) Главное чтобы работало.
